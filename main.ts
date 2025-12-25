@@ -79,21 +79,6 @@ async function editTextAndDownloadVideo() {
     });
 
     console.log("Temporary video URL:", url);
-
-    // Fetch the video blob
-    const response = await fetch(url);
-    const blob = await response.blob();
-
-    // Trigger a download in the browser
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "downloaded_video.mp4"; // You can customize the filename
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    URL.revokeObjectURL(a.href);
-
-    console.log("Video downloaded");
   });
 }
 
